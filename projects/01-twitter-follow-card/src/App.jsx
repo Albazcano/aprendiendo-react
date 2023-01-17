@@ -5,9 +5,12 @@ export function App () {
     return (
         <>
         
-        <TwitterFollowCard userName="AlbaAzc" name="Alba Azcano" />
-        <TwitterFollowCard userName="baumannzone" name="Jorge Baumann" />         
-        <TwitterFollowCard userName="NealOGrady" name="Neal O'Grady" />
+        <TwitterFollowCard userName="midudev" name="Miguel Ángel Durán" />
+        <TwitterFollowCard userName="miriamgonp" name="Miriam González" />
+        <TwitterFollowCard userName="MoureDev" name="Brais Moure" />
+        <TwitterFollowCard userName="dawntraoz" name="Alba Silvente" /> 
+        <TwitterFollowCard userName="baumannzone" name="Jorge Baumann" />  
+        
 
         </>  
     )
