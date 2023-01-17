@@ -2,16 +2,29 @@ import './App.css'
 import { TwitterFollowCard } from './TwitterFollowCard.jsx'
 
 export function App () {
-    return (
-        <>
-        
-        <TwitterFollowCard userName="midudev" name="Miguel Ángel Durán" />
-        <TwitterFollowCard userName="miriamgonp" name="Miriam González" />
-        <TwitterFollowCard userName="MoureDev" name="Brais Moure" />
-        <TwitterFollowCard userName="dawntraoz" name="Alba Silvente" /> 
-        <TwitterFollowCard userName="baumannzone" name="Jorge Baumann" />  
-        
 
-        </>  
+    return (
+        <section className='App'>
+        <TwitterFollowCard userName="midudev">
+         Miguel Ángel Durán
+        </TwitterFollowCard> 
+       
+        <TwitterFollowCard  userName="miriamgonp">
+        Miriam González
+        </TwitterFollowCard> 
+
+        <TwitterFollowCard userName="MoureDev"> 
+        Brais Moure
+        </TwitterFollowCard> 
+
+        <TwitterFollowCard userName="dawntraoz">
+        Alba Silvente
+        </TwitterFollowCard> 
+       
+        <TwitterFollowCard userName="baumannzone">
+        Jorge Baumann
+        </TwitterFollowCard> 
+         
+        </section>  
     )
 }
