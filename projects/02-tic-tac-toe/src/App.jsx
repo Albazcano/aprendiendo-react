@@ -1,34 +1,67 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react"
 
-function App() {
-  const [count, setCount] = useState(0)
+const turns = {
+  X:'X',
+  O: 'O'
+}
+
+const Square = ({children, isSelected, updateBoard, index}) => {
+  const className = `square ${isSelected ? 'is-selected' : ''}`
+
+  const handleClick = () => {
+    updateBoard(index)
+  }
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+     <div onClick={handleClick} className={className}>
+    {children}
+  </div>
   )
+}
+
+function App() {
+  const [board, setBoard] = useState (
+    Array(9).fill(null)
+  )
+  const [turn, setTurn] = useState (turns.X)
+  
+  const updateBoard = (index) => {
+    const newBoard = [...board]
+    newBoard[index] = turn
+    setBoard(newBoard)
+
+    const newTurn = turn === turns.X? turns.O : turns.X
+    setTurn(newTurn)
+  }
+    
+    return  (
+      <main className='board'>
+        <h1>Tic Tac Toe</h1>
+        <section className="game">
+          {
+            board.map((_, index) => {
+            return (
+              <Square
+              key = {index}
+              index={index}
+              updateBoard = {updateBoard}
+              >
+                {board[index]}
+              </Square>
+            )
+          })
+        }
+        </section>
+        <section className="turn">
+          <Square isSelected={turn===turns.X}>
+            {turns.X}
+          </Square> 
+          <Square isSelected={turn===turns.O}>
+            {turns.O}
+          </Square>
+        </section>
+      </main>
+    )
 }
 
 export default App
